@@ -1,6 +1,0 @@
----
-- hosts: web_servers
-  become: true
-  tasks:
-    - name: Restart Nginx on all servers
-      ansible.builtin.shell: sudo service nginx restart
