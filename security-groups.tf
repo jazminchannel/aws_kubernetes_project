@@ -10,9 +10,7 @@ resource "aws_security_group" "my_public_app_sg" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = [
-      data.aws_vpc.main_vpc.cidr_block
-    ]
+    cidr_blocks = ["0.0.0.0/0"]
 
   }
 
