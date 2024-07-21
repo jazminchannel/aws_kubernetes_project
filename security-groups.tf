@@ -29,4 +29,44 @@ resource "aws_security_group" "my_public_app_sg" {
     protocol    = "-1" #TCP + UDP
     cidr_blocks = ["0.0.0.0/0"]
   }
+
+  ingress {
+    # Allow API server access from anywhere inside the VPC
+    description = "API Server"
+    from_port   = 6443
+    to_port     = 6443
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    # Allow etcd access from anywhere inside the VPC
+    description = "etcd"
+    from_port   = 2379
+    to_port     = 2380
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    # Allow SSH from any host that has controlplane security group
+    description = "kubelet api"
+    from_port   = 10250
+    to_port     = 10250
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    # Allow access to node ports from your workstation
+    # and student node
+    description = "Node Ports"
+    from_port   = 30000
+    to_port     = 32767
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
 }
+
+  
+

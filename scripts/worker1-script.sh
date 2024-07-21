@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "k8s-worker1" | sudo tee /etc/hostname
 sudo hostname -F /etc/hostname
-cat <<"EOF" > /etc/hosts
+sudo tee /etc/hosts <<EOF
 127.0.0.1 localhost
 
 # The following lines are desirable for IPv6 capable hosts
