@@ -11,9 +11,9 @@ ff00::0 ip6-mcastprefix
 ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 ff02::3 ip6-allhosts
-10.0.24.73 k8s-control
-10.0.24.155 k8s-worker1
-10.0.24.214 k8s-worker2
+3.90.234.183 k8s-control
+3.81.79.126 k8s-worker1
+54.89.116.133 k8s-worker2
 EOF
 cat << EOF | sudo tee /etc/modules-load.d/containerd.conf
 overlay
